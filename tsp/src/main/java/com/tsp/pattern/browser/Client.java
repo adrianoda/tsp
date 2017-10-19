@@ -16,7 +16,12 @@ import com.tsp.pattern.browser.libraries.ViewerImpl;
 public class Client {
 
 	public static void main(String[] args) {
-		// DAG = Composite
+		// DAG is a Composite
+		// 		Ciao
+		// 	 /	 |	 \
+		// Oggi  è	 Una
+		//			/   \
+		//		Bella    Giornata
 		Element e1 = new Element("HTML", "<p>Ciao, </p>");
 		Element e2 = new Element("HTML", "<p>Una </p>");
 		List<Element> l1 = Arrays.asList(new Element("HTML", "<p>Oggi </p>"), new Element("HTML", "<p>è </p>"), e2);
@@ -24,8 +29,8 @@ public class Client {
 		List<Element> l2 = Arrays.asList(new Element("HTML", "<p>Bella </p>"), new Element("HTML", "<p>Giornata </p>"));
 		e2.setLinks(l2);
 
-		// Iterator + Chain of responsability
-		// AbstractFactory can be used to create handlers and renderer
+		// Iterator + Chain of responsability + Template method (see AbstractHandler class)
+		// AbstractFactory can be used to create handlers, renderers and readers
 		Viewer viewer = new ViewerImpl();
 		AbstractHandler rootHandler = new HandlerXML(viewer, new RenderXMLImpl(), new DTD());
 		AbstractHandler nextHandler = new HandlerHTML(viewer, new RenderHTMLImpl());
