@@ -17,7 +17,7 @@ public abstract class AbstractHandler {
 		if(canHandle(element)) {
 			Element re = render(element);
 			viewer.doview(re);
-		} else {
+		} else if(nextHandler != null){
 			nextHandler.handle(element);
 		}
 	}
