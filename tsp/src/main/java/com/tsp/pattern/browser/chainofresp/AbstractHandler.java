@@ -13,6 +13,7 @@ public abstract class AbstractHandler {
 		this.viewer = viewer;
 	}
 
+	// Template method
 	public void handle(Element element) {
 		if(canHandle(element)) {
 			Element re = render(element);
