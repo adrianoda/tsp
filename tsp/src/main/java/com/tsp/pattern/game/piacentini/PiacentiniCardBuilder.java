@@ -6,7 +6,7 @@ import java.util.Map;
 import com.tsp.pattern.game.Value;
 
 public class PiacentiniCardBuilder extends PiacentiniCard {
-	
+
 	private static PiacentiniCardBuilder piacentiniCardBuilder;
 
 	private PiacentiniCardBuilder() {
@@ -14,10 +14,9 @@ public class PiacentiniCardBuilder extends PiacentiniCard {
 
 	public static PiacentiniCardBuilder getInstance() {
 		if (piacentiniCardBuilder == null) {
-			return new PiacentiniCardBuilder();
-		} else {
-			return piacentiniCardBuilder;
+			piacentiniCardBuilder = new PiacentiniCardBuilder();
 		}
+		return piacentiniCardBuilder;
 	}
 
 	Map<String, PiacentiniCard> pool = new HashMap<>();

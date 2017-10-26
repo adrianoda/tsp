@@ -14,10 +14,9 @@ public class FrenchCardBuilder extends FrenchCard {
 
 	public static FrenchCardBuilder getInstance() {
 		if (frenchCardBuilder == null) {
-			return new FrenchCardBuilder();
-		} else {
-			return frenchCardBuilder;
+			frenchCardBuilder = new FrenchCardBuilder();
 		}
+		return frenchCardBuilder;
 	}
 
 	private Map<String, FrenchCard> pool = new HashMap<>();
