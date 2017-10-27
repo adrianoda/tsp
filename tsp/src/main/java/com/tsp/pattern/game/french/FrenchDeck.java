@@ -1,24 +1,34 @@
 package com.tsp.pattern.game.french;
 
 import java.util.Iterator;
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.StringJoiner;
 
 public class FrenchDeck {
 
-	private Stack<FrenchCard> deck;
+	private List<FrenchCard> deck;
 
 	public FrenchDeck() {
-		deck = new Stack<>();
+		deck = new LinkedList<>();
 	}
 
 	public void addCard(FrenchCard card) {
-		deck.push(card);
+		deck.add(card);
 	}
 
-	public FrenchCard getCard() {
+	public FrenchCard setupBriscol() {
+		FrenchCard briscol = pullCard();
+		deck.add(0, briscol);
+		return briscol;
+	}
+
+	public FrenchCard pullCard() {
 		if (!isEmpty()) {
-			return deck.pop();
+			int i = deck.size() - 1;
+			FrenchCard card = deck.get(i);
+			deck.remove(i);
+			return card;
 		} else {
 			return null;
 		}

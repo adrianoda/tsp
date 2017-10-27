@@ -21,10 +21,6 @@ public class FrenchPlayer {
 		hand.add(card);
 	}
 
-	public boolean isHandFull() {
-		return hand.size() >= 3;
-	}
-
 	public boolean isHandEmpty() {
 		return hand.isEmpty();
 	}

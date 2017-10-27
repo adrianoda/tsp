@@ -16,9 +16,9 @@ import com.tsp.pattern.game.piacentini.PiacentiniSuit;
 
 public class FrenchPlayerAdapter extends FrenchPlayer {
 
+	// Adaptee
 	private final PiacentiniPlayer piacentiniPlayer;
-	private final PiacentiniCardBuilder pbuilder = PiacentiniCardBuilder.getInstance();
-	private final FrenchCardBuilder fbuilder = FrenchCardBuilder.getInstance();
+
 	private final Map<FrenchSuit, PiacentiniSuit> frenchToPiacentini = new HashMap<>();
 	private final Map<PiacentiniSuit, FrenchSuit> piacentiniToFrench = new HashMap<>();
 
@@ -43,11 +43,6 @@ public class FrenchPlayerAdapter extends FrenchPlayer {
 	@Override
 	public boolean isHandEmpty() {
 		return piacentiniPlayer.isHandEmpty();
-	}
-
-	@Override
-	public boolean isHandFull() {
-		return piacentiniPlayer.isHandFull();
 	}
 
 	@Override
@@ -88,11 +83,11 @@ public class FrenchPlayerAdapter extends FrenchPlayer {
 	}
 
 	private PiacentiniCard convert(FrenchCard card) {
-		return pbuilder.createCard(frenchToPiacentini.get(card.getSuit()), card.getValue());
+		return PiacentiniCardBuilder.getInstance().createCard(frenchToPiacentini.get(card.getSuit()), card.getValue());
 	}
 
 	private FrenchCard convert(PiacentiniCard card) {
-		return fbuilder.createCard(piacentiniToFrench.get(card.getSuit()), card.getValue());
+		return FrenchCardBuilder.getInstance().createCard(piacentiniToFrench.get(card.getSuit()), card.getValue());
 	}
 
 }
