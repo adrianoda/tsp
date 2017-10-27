@@ -13,12 +13,13 @@ public class FrenchDeck {
 		deck = new LinkedList<>();
 	}
 
-	public void addCard(FrenchCard card) {
+	public void pushCard(FrenchCard card) {
 		deck.add(card);
 	}
 
 	public FrenchCard setupBriscol() {
 		FrenchCard briscol = pullCard();
+		// Will be the last card pulled from the deck
 		deck.add(0, briscol);
 		return briscol;
 	}

@@ -26,7 +26,7 @@ public class FrenchDeckBuilder {
 		for (FrenchSuit s : suits) {
 			for (Value v : values) {
 				FrenchCard card = cardBuilder.createCard(s, v);
-				deck.addCard(card);
+				deck.pushCard(card);
 			}
 		}
 		return deck;
